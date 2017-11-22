@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PWA Skeleton</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="shortcut icon" href="./favicon.ico">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#006633">
+
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">PWA Skeleton</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Hello World 👋</h2>
+    <h3 class="show-offline">Whoops! Looks like we are offline! 👎</h3>
+  </main>
+
+  <footer>
+    <p>Thanks for checking me out.</p>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+  <script src="./build/bundle.js"></script>
+</body>
+</html>

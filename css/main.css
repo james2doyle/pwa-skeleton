@@ -1,0 +1,36 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+body {
+  font-family: Arial;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 5%;
+  box-sizing: border-box;
+  background-color: #33cc66;
+  transition: all 0.2s ease;
+}
+
+body.is-offline {
+  background-color: #993333;
+}
+
+.show-offline {
+  display: none;
+}
+
+body.is-offline .show-offline {
+  display: initial;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+nav a {
+  color: white;
+}
