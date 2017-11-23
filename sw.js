@@ -13,15 +13,16 @@ const staticFiles = [
 /**
  * Performs install steps.
  */
-self.addEventListener('install', (event) => {
-  self.skipWaiting();
+addEventListener('install', (event) => {
+  // install this service worker as soon as a new one is available
+  skipWaiting();
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(staticFiles)));
 });
 
 /**
  * Handles requests: responds with cache or else network.
  */
-self.addEventListener('fetch', (event) => {
+addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
   event.respondWith(caches.match(event.request).then(response => response || fetch(event.request)));
 });
@@ -29,7 +30,7 @@ self.addEventListener('fetch', (event) => {
 /**
  * Cleans up static cache and activates the Service Worker.
  */
-self.addEventListener('activate', (event) => {
+addEventListener('activate', (event) => {
   event.waitUntil(caches.keys().then(keys => Promise.all(keys.map((key) => {
     if (!expectedCaches.includes(key)) {
       return caches.delete(key);
