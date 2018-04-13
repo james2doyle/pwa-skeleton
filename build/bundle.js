@@ -44,6 +44,11 @@
 /******/ 		}
 /******/ 	};
 /******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
 /******/ 	__webpack_require__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
@@ -57,37 +62,25 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/Users/james/Sites/pwa-skeleton";
+/******/ 	__webpack_require__.p = "/Users/james/Sites/_git/pwa-skeleton";
+/******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-console.log('PWA working!');
-
-var initialize = function initialize() {
-  var networkStatus = function networkStatus() {
-    if (navigator.onLine) {
-      document.body.classList.remove('is-offline');
-    } else {
-      document.body.classList.add('is-offline');
-    }
-  };
-
-  window.addEventListener('online', networkStatus);
-  window.addEventListener('offline', networkStatus);
-
-  networkStatus();
-};
-
-window.addEventListener('load', initialize);
+eval("\n\nconsole.log('PWA working!');\n\nvar initialize = function initialize() {\n  var networkStatus = function networkStatus() {\n    document.body.classList.toggle('is-offline', !navigator.onLine);\n  };\n\n  window.addEventListener('online', networkStatus);\n  window.addEventListener('offline', networkStatus);\n\n  networkStatus();\n};\n\nwindow.addEventListener('load', initialize);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
-/******/ ]);
+
+/******/ });

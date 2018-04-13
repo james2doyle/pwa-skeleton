@@ -2,11 +2,7 @@ console.log('PWA working!');
 
 const initialize = () => {
   const networkStatus = () => {
-    if (navigator.onLine) {
-      document.body.classList.remove('is-offline');
-    } else {
-      document.body.classList.add('is-offline');
-    }
+    document.body.classList.toggle('is-offline', !navigator.onLine);
   };
 
   window.addEventListener('online', networkStatus);

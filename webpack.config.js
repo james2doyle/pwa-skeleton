@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
+  mode: ENV,
   watchOptions: {
     poll: true,
   },
@@ -20,13 +21,15 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: `${__dirname}/node_modules/`,
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015'],
+          },
         },
       },
     ],
