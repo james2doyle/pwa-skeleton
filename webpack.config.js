@@ -1,4 +1,6 @@
-const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -7,42 +9,46 @@ module.exports = {
   watchOptions: {
     poll: true,
   },
-
-  entry: `${__dirname}/src/index.js`,
-
-  output: {
-    path: `${__dirname}/build/`,
-    publicPath: __dirname,
-    filename: 'bundle.js',
+  stats: {
+    colors: true,
   },
-
-  resolve: {
-    extensions: ['.js'],
+  entry: './src/',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
-
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: `${__dirname}/node_modules/`,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015'],
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: {
+                safe: true,
+              },
+            },
           },
-        },
+          {
+            loader: 'sass-loader',
+            options: {},
+          },
+        ],
       },
     ],
-  },
-
-  plugins: ENV === 'production' ? [
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: { warnings: false },
-    }),
-  ] : [],
-
-  stats: {
-    colors: true,
   },
 };

@@ -62,7 +62,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/Users/james/Sites/_git/pwa-skeleton";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -75,11 +75,22 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.scss */ \"./src/style.scss\");\n/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconsole.log('PWA working!');\n\nconst initialize = () => {\n  const networkStatus = () => {\n    document.body.classList.toggle('is-offline', !navigator.onLine);\n  };\n\n  window.addEventListener('online', networkStatus);\n  window.addEventListener('offline', networkStatus);\n\n  networkStatus();\n};\n\nwindow.addEventListener('load', initialize);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/style.scss":
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\n\nconsole.log('PWA working!');\n\nvar initialize = function initialize() {\n  var networkStatus = function networkStatus() {\n    document.body.classList.toggle('is-offline', !navigator.onLine);\n  };\n\n  window.addEventListener('online', networkStatus);\n  window.addEventListener('offline', networkStatus);\n\n  networkStatus();\n};\n\nwindow.addEventListener('load', initialize);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/style.scss?");
 
 /***/ })
 

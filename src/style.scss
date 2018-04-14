@@ -1,3 +1,6 @@
+$online: #33cc66;
+$offline: #993333;
+
 html, body {
   margin: 0;
   padding: 0;
@@ -11,20 +14,18 @@ body {
   flex-direction: column;
   padding: 5%;
   box-sizing: border-box;
-  background-color: #33cc66;
+  background-color: $online;
   transition: all 0.2s ease;
-}
-
-body.is-offline {
-  background-color: #993333;
+  &.is-offline {
+    background-color: $offline;
+  }
+  &.is-offline .show-offline {
+    display: initial;
+  }
 }
 
 .show-offline {
   display: none;
-}
-
-body.is-offline .show-offline {
-  display: initial;
 }
 
 main {

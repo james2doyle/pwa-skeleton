@@ -1,0 +1,1 @@
+body,html{margin:0;padding:0;color:#fff}body{font-family:Arial;display:flex;min-height:100vh;flex-direction:column;padding:5%;box-sizing:border-box;background-color:#3c6;transition:all .2s ease}body.is-offline{background-color:#933}body.is-offline .show-offline{display:initial}.show-offline{display:none}main{flex:1 0 auto}nav a{color:#fff}
