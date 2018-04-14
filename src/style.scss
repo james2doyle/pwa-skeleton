@@ -19,13 +19,22 @@ body {
   &.is-offline {
     background-color: $offline;
   }
-  &.is-offline .show-offline {
-    display: initial;
+  &.is-offline {
+    .show-offline {
+      display: initial;
+    }
+    .show-online {
+      display: none;
+    }
   }
 }
 
 .show-offline {
   display: none;
+}
+
+.show-online {
+  display: initial;
 }
 
 main {
