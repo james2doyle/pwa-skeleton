@@ -38,6 +38,6 @@
     "sass-loader": "^7.0.3",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.16.2",
-    "webpack-cli": "^2.1.5"
+    "webpack-cli": "^5.0.1"
   }
 }
